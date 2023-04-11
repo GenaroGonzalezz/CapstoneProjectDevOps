@@ -1,0 +1,33 @@
+name: First Workflow
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+  
+jobs:
+    myfirstjob:
+              name: First Job
+              runs-on: ubuntu-latest
+              steps:
+              - name: Step One
+                uses: actions/checkout@v3 #Clone the repo on the runner Ubuntu
+              - name: Step Two
+                run: |
+                  touch test.yaml
+                  echo "Alo" >>test.yaml
+                  cat test.yaml
+                  pwd
+    mysecondjob:
+              needs: [myfirstjob] #Wait for the first job to be finished to start with the second
+              name: Second Job
+              runs-on: macos-latest
+              steps:
+              - name: Step One
+                run: date
+    mythirdjob:
+              name: Third Job
+              runs-on: windows-latest
+              steps:
+              - name: Step One
+                run: date
