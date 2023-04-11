@@ -1,0 +1,13 @@
+version: '3'
+services:
+    myapp:
+      build: ./hello-world
+      command: npm start
+      container_name: hello_c
+      ports:
+        - '3000:3000'
+    # volumes:
+    # - ./hello-world:/app
+    # - ./app/node_modules
+      # stdin_open: true
+      # tty: true
