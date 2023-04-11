@@ -1,9 +1,9 @@
 version: '3'
 services:
     myapp:
-      build: ./hello-world
+      build: ./capstone-app
       command: npm start
-      container_name: hello_c
+      container_name: app_c
       ports:
         - '3000:3000'
     # volumes:
