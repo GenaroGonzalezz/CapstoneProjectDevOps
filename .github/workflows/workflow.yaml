@@ -3,21 +3,33 @@ name: First Workflow
 on:
   push:
   pull_request:
-  workflow_dispatch:
   
 jobs:
     myfirstjob:
               name: First Job
               runs-on: ubuntu-latest
               steps:
-              - name: Step One
+              - name: Checkout code
                 uses: actions/checkout@v3 #Clone the repo on the runner Ubuntu
-              - name: Step Two
-                run: |
-                  touch test.yaml
-                  echo "Alo" >>test.yaml
-                  cat test.yaml
-                  pwd
+              - name: Setup Node
+                uses: actions/setup-node@v2
+                with: 
+                  node-version: '16.x'
+              
+              - name: Install dependencies
+                run: npm install
+                
+              - name: Run tests
+                run: npm test
+                
+              - name: Build Docker image
+                if: ${{ success() }}
+                uses: docker/build-push-action@v2
+                with:
+                  context: .
+                  push: true
+                  tags: gena/capstone-app:latest
+                  
     mysecondjob:
               needs: [myfirstjob] #Wait for the first job to be finished to start with the second
               name: Second Job
