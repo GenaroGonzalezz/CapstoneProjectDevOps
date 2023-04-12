@@ -12,9 +12,9 @@ jobs:
               - name: Checkout code
                 uses: actions/checkout@v3 #Clone the repo on the runner Ubuntu
               - name: Setup Node
-                uses: actions/setup-node@v3
+                uses: actions/setup-node@v2.5.2
                 with: 
-                  node-version: 18.x
+                  node-version: "18.x"
               
               - name: Install dependencies
                 run: npm install
