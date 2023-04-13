@@ -13,6 +13,6 @@ services:
     build: 
       context: ./capstone-app
       dockerfile: Dockerfile
-    container_name: capstone_c
+    container_name: capstone-app
     ports:
       - "3000:3000"
