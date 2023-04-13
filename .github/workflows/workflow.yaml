@@ -40,8 +40,8 @@ jobs:
                   
     second:
               needs: [first] #Wait for the first job to be finished to start with the second
-              name: Login docker
-              runs-on: macos-latest
+              name: Set Docker
+              runs-on: ubuntu-latest
               defaults:
                 run:
                   working-directory: ./capstone-app
