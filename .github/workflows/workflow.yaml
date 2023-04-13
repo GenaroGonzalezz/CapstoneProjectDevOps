@@ -42,6 +42,10 @@ jobs:
               needs: [first] #Wait for the first job to be finished to start with the second
               name: Login docker
               runs-on: macos-latest
+              defaults:
+                run:
+                  working-directory: ./capstone-app
+              
               steps:
                - name: Checkout
                  uses: actions/checkout@v2
