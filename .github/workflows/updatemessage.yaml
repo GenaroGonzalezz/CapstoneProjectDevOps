@@ -1,8 +1,7 @@
+---
 - name: Update App.js message
   hosts: all
   become: yes
-  
   tasks:
     - name: Ping Check
-      ping:
-      
+      ping: null
