@@ -32,6 +32,9 @@ jobs:
               - name: Run tests
                 run: npm test
                 
+                
+              - name: Checkout
+                uses: actions/checkout@v2
               - name: Build Docker image
                 if: ${{ success() }}
                 uses: docker/build-push-action@v4.0.0
@@ -41,12 +44,6 @@ jobs:
                   push: true
                   tags: gena/capstone-app:latest
                   
-              - name: Temporarily save webpack artifact
-                uses: actions/upload-artifact@v2
-                with:
-                  name: webpack-artifact
-                  path: build
-                  retention-days: 1
                   
     mysecondjob:
               needs: [myfirstjob] #Wait for the first job to be finished to start with the second
