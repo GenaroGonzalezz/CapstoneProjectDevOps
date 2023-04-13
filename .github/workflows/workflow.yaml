@@ -11,6 +11,7 @@ jobs:
               steps:
               - name: Checkout code
                 uses: actions/checkout@v3 #Clone the repo on the runner Ubuntu
+                
               - name: Setup Node
                 uses: actions/setup-node@v2.5.2
                 with: 
