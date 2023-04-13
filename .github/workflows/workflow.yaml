@@ -40,6 +40,13 @@ jobs:
                   push: true
                   tags: gena/capstone-app:latest
                   
+              - name: Temporarily save webpack artifact
+                uses: actions/upload-artifact@v2
+                with:
+                  name: webpack-artifact
+                  path: build
+                  retention-days: 1
+                  
     mysecondjob:
               needs: [myfirstjob] #Wait for the first job to be finished to start with the second
               name: Second Job
