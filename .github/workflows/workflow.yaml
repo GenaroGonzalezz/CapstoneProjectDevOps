@@ -57,7 +57,7 @@ jobs:
 #                   username: ${{ secrets.DOCKERHUB_USERNAME }}
 #                   password: ${{ secrets.DOCKERHUB_TOKEN }}
                   username: ${{github.actor}}
-                  password: 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
+                  password: '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'
                   
                -
                 name: Set up docker Buildx
