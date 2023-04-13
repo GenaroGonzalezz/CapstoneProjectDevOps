@@ -32,11 +32,7 @@ jobs:
               - name: Run tests
                 run: npm test
                 
-                
-             
-                  
-             
-                  
+
                   
     second:
               needs: [first] #Wait for the first job to be finished to start with the second
