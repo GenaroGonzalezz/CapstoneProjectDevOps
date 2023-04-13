@@ -30,7 +30,7 @@ jobs:
                 run: npm install
                 
               - name: Run tests
-                run: npm testus
+                run: npm test
                 
                 
              
@@ -40,7 +40,7 @@ jobs:
                   
     second:
               needs: [first] #Wait for the first job to be finished to start with the second
-              name: Set Docker
+              name: Set Docker if test are passed
               runs-on: ubuntu-latest
               defaults:
                 run:
